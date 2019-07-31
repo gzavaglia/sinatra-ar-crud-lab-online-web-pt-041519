@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
   end
+  #create
   
   get '/articles/new' do
     erb :new
@@ -19,6 +20,7 @@ class ApplicationController < Sinatra::Base
     @article = Article.create(params)
   end
   
+  #read
   get '/articles' do
     @articles = Article.all
     erb :index
@@ -29,6 +31,12 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
   
+  get 'articles/:id/edit' do 
+    erb :edit
+  end
+  
+  
+  #delete
   get 'models/:id/delete' do 
     erb :delete
   end
